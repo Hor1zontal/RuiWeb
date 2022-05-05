@@ -20,19 +20,19 @@
                 <el-input size="normal" type="password" v-model="loginForm.password" auto-complete="off"
                           placeholder="密码" clearable prefix-icon="el-icon-lock" @keydown.enter.native="submitLogin"></el-input>
             </el-form-item>
-            <el-form-item>
-                <el-col :span="12">
-                    <el-form-item prop="imageCode">
-                        <el-input size="normal" type="text" v-model="loginForm.imageCode" auto-complete="off" class="el-col-width"
-                                  placeholder="验证码" clearable style="width: 80%" @keydown.enter.native="submitLogin"></el-input>
-                    </el-form-item>
-                </el-col>
-                <el-col :span="12">
-                    <el-form-item required>
-                        <img id="img" alt="显示失败" :src="codeURL" @click="refreshCaptcha"/>
-                    </el-form-item>
-                </el-col>
-            </el-form-item>
+<!--            <el-form-item>-->
+<!--                <el-col :span="12">-->
+<!--                    <el-form-item prop="imageCode">-->
+<!--                        <el-input size="normal" type="text" v-model="loginForm.imageCode" auto-complete="off" class="el-col-width"-->
+<!--                                  placeholder="验证码" clearable style="width: 80%" @keydown.enter.native="submitLogin"></el-input>-->
+<!--                    </el-form-item>-->
+<!--                </el-col>-->
+<!--                <el-col :span="12">-->
+<!--                    <el-form-item required>-->
+<!--                        <img id="img" alt="显示失败" :src="codeURL" @click="refreshCaptcha"/>-->
+<!--                    </el-form-item>-->
+<!--                </el-col>-->
+<!--            </el-form-item>-->
             <el-form-item style="margin: 0">
                 <el-checkbox size="normal" class="loginRemember" v-model="loginForm.rememberMe">一周内免登录</el-checkbox>
             </el-form-item>
@@ -83,13 +83,14 @@
             'loginForm.password': function (val, oldValue) {
                 this.forbidLogin = !this.checkData();
             },
-            'loginForm.imageCode': function (val, oldValue) {
-                this.forbidLogin = !this.checkData();
-            }
+            // 'loginForm.imageCode': function (val, oldValue) {
+            //     this.forbidLogin = !this.checkData();
+            // }
         },
         methods: {
             checkData() {
-                return this.loginForm.username !== '' && this.loginForm.password !== '' && this.loginForm.imageCode !== '';
+                // return this.loginForm.username !== '' && this.loginForm.password !== '' && this.loginForm.imageCode !== '';
+                return this.loginForm.username !== '' && this.loginForm.password !== '' ;
             },
             refreshCaptcha() {
                 this.codeURL += '?t=' + new Date().getTime();

@@ -238,7 +238,18 @@ router.beforeEach((to, from, next) => {
     } else {
         if (window.localStorage.getItem('user') || window.sessionStorage.getItem('user')) {
             console.log("router==",router)
-            initMenu(routes.slice(3), store);
+            let user = JSON.parse(window.localStorage.getItem('user')) //1--管理员；2--学生
+            let userRoutes = []
+            // user.role = 1
+            if(user.status === 1) {
+                userRoutes = routes.slice(3);
+            } else if (user.status === 2) {
+                userRoutes = routes.slice(routes.length - 1)
+                userRoutes.unshift(routes[3])
+            }
+            console.warn("user===",user)
+            // initMenu(routes.slice(3), store);
+            initMenu(userRoutes, store);
             next();
         } else {
             location.replace('/login');

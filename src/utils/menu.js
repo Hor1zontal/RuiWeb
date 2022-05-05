@@ -1,6 +1,7 @@
 import {getRequest} from "./api";
 
 export const initMenu = (router, store) => {
+    // debugger
     if (store.state.routes.length > 0) {
         return;
     }

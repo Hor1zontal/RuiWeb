@@ -46,7 +46,8 @@ axios.interceptors.response.use(success => {
 });
 
 axios.defaults.baseURL = 'http://121.4.219.39:9000/';
-// axios.defaults.baseURL = 'http://10.117.163.224:9000/';
+// axios.defaults.baseURL = 'http://172.20.10.6:9000/';
+// axios.defaults.baseURL = 'http://10.134.70.126:9000/';
 // axios.defaults.baseURL = 'http://127.0.0.1:9000/';
 axios.defaults.withCredentials = false;
 

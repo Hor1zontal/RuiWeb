@@ -33,28 +33,28 @@
                                     inactive-text="禁用">
                             </el-switch>
                         </div>
-                        <div>用户角色：
-                            <el-tag type="success" style="margin-right: 4px" v-for="(role,indexj) in user.roles"
-                                    :key="indexj" closable :disable-transitions="false" @close="handleClose(user, role)">{{role.description}}
-                            </el-tag>
-                            <el-popover
-                                    placement="right"
-                                    title="角色列表"
-                                    @show="showPop(user)"
-                                    @hide="hidePop(user)"
-                                    width="200"
-                                    trigger="click">
-                                <el-select v-model="selectedRoles" multiple placeholder="请选择">
-                                    <el-option
-                                            v-for="(r,indexk) in exceptRoles"
-                                            :key="indexk"
-                                            :label="r.description"
-                                            :value="r.id">
-                                    </el-option>
-                                </el-select>
-                                <el-button slot="reference" icon="el-icon-more" type="text"></el-button>
-                            </el-popover>
-                        </div>
+<!--                        <div>用户角色：-->
+<!--                            <el-tag type="success" style="margin-right: 4px" v-for="(role,indexj) in user.roles"-->
+<!--                                    :key="indexj" closable :disable-transitions="false" @close="handleClose(user, role)">{{role.description}}-->
+<!--                            </el-tag>-->
+<!--                            <el-popover-->
+<!--                                    placement="right"-->
+<!--                                    title="角色列表"-->
+<!--                                    @show="showPop(user)"-->
+<!--                                    @hide="hidePop(user)"-->
+<!--                                    width="200"-->
+<!--                                    trigger="click">-->
+<!--                                <el-select v-model="selectedRoles" multiple placeholder="请选择">-->
+<!--                                    <el-option-->
+<!--                                            v-for="(r,indexk) in exceptRoles"-->
+<!--                                            :key="indexk"-->
+<!--                                            :label="r.description"-->
+<!--                                            :value="r.id">-->
+<!--                                    </el-option>-->
+<!--                                </el-select>-->
+<!--                                <el-button slot="reference" icon="el-icon-more" type="text"></el-button>-->
+<!--                            </el-popover>-->
+<!--                        </div>-->
                         <div>个人描述：{{user.description}}</div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
             },
             initUsers(pageNum, pageSize) {
                 this.loadingFlag = true;
-                this.getRequest("/web/user/?keywords=" + this.keywords + '&pageNum=' + pageNum + '&pageSize=' + pageSize).then(resp => {
+                this.getRequest("/web/user?keywords=" + this.keywords + '&pageNum=' + pageNum + '&pageSize=' + pageSize).then(resp => {
                     this.loadingFlag = false;
                     if (resp) {
                         this.users = resp.data.list;
