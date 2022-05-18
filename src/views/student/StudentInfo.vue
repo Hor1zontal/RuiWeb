@@ -13,11 +13,11 @@
       :data="coursesList"
       style="width: 50%">
       <el-table-column
-          prop="name"
+          prop="courseName"
           label="课程名称">
       </el-table-column>
       <el-table-column
-          prop="status"
+          prop="score"
           label="成绩">
       </el-table-column>
     </el-table>
@@ -26,27 +26,27 @@
         :data="coursesList"
         style="width: 70%">
       <el-table-column
-          prop="name"
+          prop="userID"
           label="学工号">
       </el-table-column>
       <el-table-column
           prop="name"
           label="姓名">
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
           prop="name"
           label="专业">
       </el-table-column>
       <el-table-column
           prop="name"
           label="班级">
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
-          prop="name"
+          prop="courseName"
           label="课程名称">
       </el-table-column>
       <el-table-column
-          prop="status"
+          prop="score"
           label="成绩">
       </el-table-column>
     </el-table>
@@ -253,7 +253,7 @@
     .identification_photo{
         width: 120px;
         height: 140px;
-        //margin-left: 160px;
+        /* margin-left: 160px; */
     }
     .Info{
         width: 100%;
