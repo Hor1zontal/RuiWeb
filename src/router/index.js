@@ -214,7 +214,7 @@ const routes = [
                 path: 'student-info',
                 name: 'student-info',
                 meta: {
-                    title: "学生信息查询"
+                    title: "学生成绩查询"
                 },
                 component: () => import("../views/student/StudentInfo"),
             },
